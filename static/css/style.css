@@ -10,10 +10,10 @@
 
 body {
   margin: 0;
-  font-family: 'Open Sauce', sans-serif;
+  font-family: "Open Sauce", sans-serif;
   background-color: #c1db4d;
   background-repeat: repeat;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -22,25 +22,27 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  padding: 0 40px;
-  font-size: 1.5rem;
+  height: 80px;
+  padding: 0 5vw;
+  font-size: 1.2rem;
   border-bottom: 2px solid black;
+  background-color: #c1db4d;
 }
 
 .header-bar span:first-child {
-  font-family: 'Bristol', sans-serif;
-  font-size: 2rem;
+  font-family: "Bristol", sans-serif;
+  font-size: 1.8rem;
 }
 
 .main {
   flex: 1;
   display: flex;
+  flex-direction: row;
 }
 
 .left, .right {
-  width: 50%;
-  height: 100%;
+  flex: 1;
+  min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,10 +55,13 @@ body {
 canvas {
   background-color: white;
   border: 2px solid black;
+  max-width: 90%;
+  height: auto;
 }
 
 #chart {
   width: 90%;
+  max-width: 500px;
   height: 90%;
 }
 
@@ -68,19 +73,57 @@ canvas {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  font-size: 3rem;
+  font-size: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   flex-direction: column;
-  font-family: 'Bristol', sans-serif;
+  font-family: "Bristol", sans-serif;
+  text-align: center;
 }
 
 #result-message {
-  padding: 40px;
+  padding: 30px;
   border: 4px solid white;
   background-color: #c1db4d;
   color: black;
   border-radius: 20px;
+  max-width: 90%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid black;
+  }
+
+  .right {
+    border-bottom: none;
+    padding-top: 20px;
+  }
+
+  .header-bar {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    gap: 10px;
+  }
+
+  canvas, #chart {
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+  }
+
+  #result-message {
+    font-size: 2rem;
+  }
 }
