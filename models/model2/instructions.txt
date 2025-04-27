@@ -1,0 +1,2 @@
+You can download a zip of all the data used to train this model through this link: https://drive.google.com/file/d/1BJrynmCw_CZk3zSoD98m6zABu-a6BgVW/view?usp=drive_link
+Make sure to extract the data.zip in this directory.
