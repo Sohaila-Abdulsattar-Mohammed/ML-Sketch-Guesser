@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ML Sketch Guesser</title>
   <style>
     @font-face {
@@ -24,7 +23,6 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-
     }
 
     @keyframes fadeDown {
@@ -44,41 +42,43 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: flex-start;
-      padding: 0 60px 100px 60px;
+      padding: 0 5vw 8vh 5vw;
       position: relative;
       animation: fadeDown 0.5s ease-in;
     }
 
-
     .info {
       position: absolute;
-      top: 80px;
-      right: 60px;
-      font-size: 2.5rem;
+      top: 5vh;
+      right: 5vw;
+      font-size: 2.2vw;
       transition: transform 0.2s ease;
     }
 
-.info:hover {
-  transform: scale(1.05);
-}
-
+    .info:hover {
+      transform: scale(1.05);
+    }
 
     h1 {
-      font-size: 7rem;
+      font-size: clamp(3rem, 6vw, 7rem);
       color: black;
       margin: 0;
       line-height: 1.2;
       text-align: left;
+      max-width: 90%;
     }
 
     .arrow {
       position: absolute;
-      bottom: 100px;
-      right: 60px;
+      bottom: 5vh;
+      right: 5vw;
     }
 
     .arrow img {
-      width: 200px;
+      width: 10vw;
+      max-width: 150px;
+      min-width: 100px;
+      transition: transform 0.2s ease;
     }
 
     .arrow:hover img {
@@ -90,23 +90,21 @@
       text-decoration: none;
     }
 
-
     .footer-wrapper {
       width: 100%;
       flex-shrink: 0;
     }
 
-.footer-line {
-  border-top: 3px solid black;
-  width: 100%;
-  
-}
+    .footer-line {
+      border-top: 3px solid black;
+      width: 100%;
+    }
 
-.footer-bar {
-  background-color: #ffcc00;
-  height: 123px;
-  width: 100%;
-}
+    .footer-bar {
+      background-color: #ffcc00;
+      height: 10vh;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -121,5 +119,6 @@
     <div class="footer-line"></div>
     <div class="footer-bar"></div>
   </div>
+
 </body>
 </html>
