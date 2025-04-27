@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 50px;
   padding: 0 5vw;
   font-size: 1.2rem;
   border-bottom: 2px solid black;
@@ -31,7 +31,7 @@ body {
 
 .header-bar span:first-child {
   font-family: "Bristol", sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .main {
