@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import torch
 import torch.nn.functional as F
 
@@ -24,7 +24,44 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 #initialize the model variable (will be set dynamically based on the the user's choice)
 model = None
 
-#define the prediction endpoint
+#home page
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/intro")
+def intro():
+    return render_template("intro.html")
+
+@app.route("/info")
+def info():
+    return render_template("info.html")
+
+@app.route("/start")
+def start():
+    return render_template("start.html")
+
+@app.route("/model-choice")
+def model_choice():
+    return render_template("model-choice.html")
+
+@app.route("/game")
+def game():
+    return render_template("game.html")
+
+@app.route("/sketch")
+def sketch():
+    return render_template("sketch.html")
+
+@app.route("/win")
+def win():
+    return render_template("win.html")
+
+@app.route("/lose")
+def lose():
+    return render_template("lose.html")
+
+#defining the prediction endpoint
 @app.route("/predict", methods=["POST"])
 def predict():
     #parse the incoming JSON request
@@ -95,7 +132,6 @@ def predict():
 
     #return the sorted results as a JSON response
     return jsonify(results)
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
