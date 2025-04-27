@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <div class="header-bar">
+    <span>Draw: <strong id="target-word"></strong></span>
+    <span id="timer">00:20</span>
+  </div>
+  <div class="main">
+    <div class="left">
+      <!-- p5 canvas injected here -->
+    </div>
+    <div class="right">
+      <div id="chart"></div>
+      <!-- you can uncomment the following section to be able to see a preview of what will be sent to the CNN model, ie the downsized sketch image -->
+      
+      <!-- <div class="preview">
+        <p style="text-align:center; font-size: 14px;">Model Input Preview</p>
+        <canvas id="preview" width="56" height="56" style="border:1px solid black;"></canvas>
+      </div> -->
+    </div>
+  </div>
+ 
+<script src="libs/simplify.js"></script>
+
+<script>
+  //get the user's chosen model from local storage
+  const chosenModel = localStorage.getItem("chosenModel") || "model1";
+
+
+  //loading the corresponding JS file
+
+  const script = document.createElement("script");
+  if (chosenModel === "model1") {
+    script.src = "sketch1.js";
+    console.log("Loading sketch1.js");
+
+  } else {
+    script.src = "sketch2.js";
+    console.log("Loading sketch2.js");
+  }
+
+  //append the script to the DOM
+  document.body.appendChild(script);
+</script>
+
+</body>
+</html>

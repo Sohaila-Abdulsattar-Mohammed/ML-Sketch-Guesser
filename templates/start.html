@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drawing Prompt</title>
+  <style>
+    @font-face {
+      font-family: "Bristol";
+      src: url("/static/Bristol.otf");
+    }
+
+    @font-face {
+      font-family: "Open Sauce Bold";
+      src: url("/static/OpenSauceSans-Bold.ttf");
+      font-weight: bold;
+    }
+
+    @font-face {
+      font-family: "Open Sauce";
+      src: url("/static/OpenSauceSans-Regular.ttf");
+      font-weight: normal;
+    }
+
+    @keyframes fadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f9a9ee;
+      font-family: 'Open Sauce', sans-serif;
+      background-repeat: repeat;
+    }
+
+    .header-wrapper,
+    .footer-wrapper {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .header-line,
+    .footer-line {
+      border-top: 2px solid black;
+      width: 100%;
+    }
+
+    .header-bar,
+    .footer-bar {
+      background-color: #f9a9ee;
+      height: 100px;
+      width: 100%;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeDown 0.5s ease-in;
+    }
+
+    .prompt-title {
+      font-family: 'Bristol', sans-serif;
+      font-size: 4rem;
+      margin-bottom: 60px;
+    }
+
+    .prompt-box {
+      font-family: 'Open Sauce Bold', sans-serif;
+      font-size: 3rem;
+      background-color: #c0d839;
+      padding: 50px 150px;
+      border: 2px solid black;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .prompt-box:hover {
+      background-color: #99b423;
+    }
+
+    .instructions {
+      margin-top: 60px;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .instructions strong {
+      font-family: 'Open Sauce Bold', sans-serif;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    const words = [
+      'cat', 'tree', 'fish', 'clock', 'castle', 'crown', 'lollipop', 'moon',
+      'watermelon', 'tornado', 'apple', 'bowtie', 'bicycle', 'diamond',
+      'flower', 'butterfly', 'eye', 'lightning', 'cloud', 'pizza'
+    ];
+
+    const randomWord = words[Math.floor(Math.random() * words.length)];
+    localStorage.setItem('promptWord', randomWord);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const promptBox = document.querySelector('.prompt-box');
+      promptBox.textContent = randomWord;
+
+      promptBox.addEventListener('mouseenter', () => {
+        promptBox.textContent = 'start';
+      });
+
+      promptBox.addEventListener('mouseleave', () => {
+        promptBox.textContent = randomWord;
+      });
+
+      promptBox.addEventListener('click', () => {
+        window.location.href = 'sketch.html';
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="header-wrapper">
+    <div class="header-bar"></div>
+    <div class="header-line"></div>
+  </div>
+
+  <div class="container">
+    <div class="prompt-title">You are tasked with<br>drawing the following:</div>
+    <div class="prompt-box"></div>
+    <div class="instructions">
+      <strong>MAKE SURE TO COMPLETE IN 20 SECONDS</strong>
+      You will be able to see what the model is guessing<br>
+      you’re most likely drawing in real time.
+    </div>
+  </div>
+
+  <div class="footer-wrapper">
+    <div class="footer-line"></div>
+    <div class="footer-bar"></div>
+  </div>
+</body>
+</html>
