@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instructions</title>
   <style>
     @font-face {
@@ -13,6 +13,12 @@
     @font-face {
       font-family: "Open Sauce";
       src: url("/static/OpenSauceSans-Regular.ttf");
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     @keyframes fadeDown {
@@ -26,18 +32,13 @@
       }
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
-      padding: 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       font-family: 'Open Sauce', sans-serif;
       background-color: #c1db4d;
+      background-image: url('/static/grain.png');
       background-repeat: repeat;
     }
 
@@ -56,7 +57,7 @@
     .header-bar,
     .footer-bar {
       background-color: #c1db4d;
-      height: 100px;
+      height: 10vh;
       width: 100%;
     }
 
@@ -64,62 +65,65 @@
       flex: 1;
       display: flex;
       flex-direction: row;
-      /* animation: fadeDown 0.5s ease-in; */
-
+      height: 80vh;
     }
 
     .left {
-      width: 60%;
+      flex: 3;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px;
-      background-color: #c1db4d;
+      padding: 5vh 5vw;
       animation: fadeDown 0.5s ease-in;
-
     }
 
     .right {
-      width: 40%;
+      flex: 2;
       background-image: url('/static/doodles.png');
       background-repeat: repeat;
       background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .vertical-line {
+      width: 3px;
+      background-color: black;
     }
 
     .title {
       font-family: 'Bristol', sans-serif;
-      font-size: 3.8rem;
-      margin-bottom: 40px;
+      font-size: 5vw;
+      margin-bottom: 3vh;
     }
 
     .description {
-      font-size: 1.5rem;
+      font-size: 1.6vw;
+      max-width: 80%;
       line-height: 1.6;
-      max-width: 550px;
-    }
-    .vertical-line {
-        width: 3px;
-        background-color: black;
     }
 
     .arrow-link {
-        margin-top: 60px;
-        text-align: left;
-        }
+      margin-top: 5vh;
+    }
 
     .arrow-img {
-        width: 120px; /* adjust size if needed */
-        transition: transform 0.2s ease;
-        cursor: pointer;
+      width: 7vw;
+      transition: transform 0.2s ease;
+      cursor: pointer;
     }
 
     .arrow-img:hover {
-        transform: scale(1.05);
+      transform: scale(1.05);
     }
 
-
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   </style>
 </head>
+
 <body>
   <div class="header-wrapper">
     <div class="header-bar"></div>
@@ -139,7 +143,6 @@
           <img src="/static/doodle-arrow.png" alt="Next" class="arrow-img">
         </a>
       </div>
-      
     </div>
     <div class="vertical-line"></div>
     <div class="right"></div>
@@ -149,5 +152,6 @@
     <div class="footer-line"></div>
     <div class="footer-bar"></div>
   </div>
+
 </body>
 </html>
