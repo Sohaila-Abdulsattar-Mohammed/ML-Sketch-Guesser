@@ -76,7 +76,7 @@ let timer = setInterval(() => {
   if (timeLeft <= 0) { //if time runs out
     clearInterval(timer); //stop the timer
     if (!hasWon) { //if the user hasn't won
-      const audio = new Audio("lose.wav"); //play lose sound
+      const audio = new Audio("/static/lose.wav"); //play lose sound
       audio.play().then(() => {
           setTimeout(() => {
           window.location.href = "lose"; //redirect to lose page
@@ -220,7 +220,7 @@ function sendToModel() {
   })
     .then(res => res.json()) //parse JSON response
     .then((data) => {
-      console.log("Predictions:", data); //log predictions
+      // console.log("Predictions:", data); //log predictions
 
       //update the bar chart with new prediction data
       let newData = new Array(classNames.length).fill(0); //reset data
@@ -240,7 +240,7 @@ function sendToModel() {
         hasWon = true; //mark as won
         clearInterval(timer); //stop the timer
 
-        const audio = new Audio("win.wav"); //play win sound
+        const audio = new Audio("/static/win.wav"); //play win sound
         audio.play().then(() => {
           setTimeout(() => {
           window.location.href = "win"; //redirect to win page
