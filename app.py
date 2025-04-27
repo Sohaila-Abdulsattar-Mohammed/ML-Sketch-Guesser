@@ -95,3 +95,7 @@ def predict():
 
     #return the sorted results as a JSON response
     return jsonify(results)
+
+
+if __name__ == '__main__':
+    app.run()
