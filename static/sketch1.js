@@ -79,11 +79,11 @@ let timer = setInterval(() => {
       const audio = new Audio("lose.wav"); //play lose sound
       audio.play().then(() => {
           setTimeout(() => {
-          window.location.href = "lose.html"; //redirect to lose page
+          window.location.href = "lose"; //redirect to lose page
           }, audio.duration * 1000); //wait for sound to finish
       }).catch(err => {
           console.warn("Autoplay blocked, skipping sound:", err);
-          window.location.href = "lose.html"; //redirect if autoplay fails
+          window.location.href = "lose"; //redirect if autoplay fails
       });
     }
   }
@@ -202,7 +202,15 @@ function sendToModel() {
 
   //send the processed image to the backend for prediction
   const chosenModel = localStorage.getItem("chosenModel"); //retrieve chosen model from local storage
-  fetch("http://localhost:5000/predict", { //send POST request to backend
+
+
+  //getting the current origin of the page
+  const CURRENT_ORIGIN = window.location.origin;
+
+  const API_BASE = CURRENT_ORIGIN.includes("localhost") ? "http://localhost:5000" : CURRENT_ORIGIN;
+
+  //send the sequence to the backend for prediction
+  fetch(`${API_BASE}/predict`, { //send POST request to backend
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ 
@@ -235,11 +243,11 @@ function sendToModel() {
         const audio = new Audio("win.wav"); //play win sound
         audio.play().then(() => {
           setTimeout(() => {
-          window.location.href = "win.html"; //redirect to win page
+          window.location.href = "win"; //redirect to win page
           }, audio.duration * 1000); //wait for sound to finish
         }).catch(err => {
           console.warn("Autoplay blocked, skipping sound:", err);
-          window.location.href = "win.html"; //redirect if autoplay fails
+          window.location.href = "win"; //redirect if autoplay fails
         });
       }
     })
