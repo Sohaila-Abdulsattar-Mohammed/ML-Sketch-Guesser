@@ -30,7 +30,7 @@
     </div>
   </div>
  
-<script src="libs/simplify.js"></script>
+<script src="/static/libs/simplify.js"></script>
 
 <script>
   //get the user's chosen model from local storage
@@ -41,11 +41,11 @@
 
   const script = document.createElement("script");
   if (chosenModel === "model1") {
-    script.src = "sketch1.js";
+    script.src = "/static/sketch1.js";
     console.log("Loading sketch1.js");
 
   } else {
-    script.src = "sketch2.js";
+    script.src = "/static/sketch2.js";
     console.log("Loading sketch2.js");
   }
 
