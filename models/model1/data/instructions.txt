@@ -1,2 +1,5 @@
 You can download a zip of all the data used to train this model through this link: https://drive.google.com/file/d/1Smz2TSaguTu2BumGjVIrysS0Q7naCW1P/view?usp=drive_link
 Make sure to extract the data.zip in this directory.
+
+Alternatively, you can download the data through the Jupyter notebook block at the beginning.
+Make sure to place all the data in a directory called "data" under "model1/"
