@@ -1,18 +1,17 @@
 @font-face {
   font-family: "Bristol";
-  src: url("Bristol.otf");
+  src: url("/static/Bristol.otf");
 }
 
 @font-face {
   font-family: "Open Sauce";
-  src: url("OpenSauceSans-Regular.ttf");
+  src: url("/static/OpenSauceSans-Regular.ttf");
 }
 
 body {
   margin: 0;
   font-family: 'Open Sauce', sans-serif;
   background-color: #c1db4d;
-  background-image: url('grain.png');
   background-repeat: repeat;
   height: 100vh;
   display: flex;
