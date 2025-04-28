@@ -113,7 +113,7 @@ def predict():
             logits = model(input_tensor, length_tensor)  #get raw model outputs
             probs = F.softmax(logits, dim=1).squeeze()  #apply softmax to get probabilities
 
-        print("Raw probabilities:", probs.cpu().numpy()) #print raw probabilities
+        # print("Raw probabilities:", probs.cpu().numpy()) #print raw probabilities
 
     else:
         #if neither "pixels" nor "sequence" is provided, return an error
