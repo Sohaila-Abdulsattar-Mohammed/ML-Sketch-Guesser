@@ -58,6 +58,7 @@ Two types of datasets from the **QuickDraw** project were used:
 ### CNN Model (Image-based)
 
 - **Architecture:**
+
 ![Model Architecture](/CNN_Model_Architecture.png)
 
 - **Loss Function:** Cross Entropy Loss
@@ -79,6 +80,62 @@ Two types of datasets from the **QuickDraw** project were used:
   - Train Accuracy: 95.12%  
   - Validation Accuracy: 94.58%
   - Test Accuracy: 94.51%
+ 
+  ---
+## How to Run the Project Locally
+
+If you'd like to run the project locally, follow these steps:
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Sohaila-Abdulsattar-Mohammed/ML-Sketch-Guesser.git
+cd ML-Sketch-Guesser
+```
+
+### 2. Create a Virtual Environment (Recommended)
+It is recommended to use a virtual environment to manage dependencies:
+```bash
+python -m venv venv
+source venv/bin/activate       # On macOS/Linux
+# OR
+venv\Scripts\activate          # On Windows
+```
+
+### 3. Install Required Packages
+Install all necessary Python libraries listed in `requirements.txt`:
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Backend Server
+Start the Flask server by running:
+```bash
+python app.py
+```
+The server will start at:
+```
+http://localhost:5000
+```
+
+### 5. Open the Frontend
+Once the server is running:
+- Open your browser.
+- Navigate to:
+```
+http://localhost:5000
+```
+You should now see the game interface!
+
+---
+
+## How the Game Works
+- You choose a machine learning model to test.
+- A target word is shown.
+- You draw the word in the canvas.
+- The system predicts what you are drawing in real time; the bar chart on the left side of the screen shows the model's predictions as they update.
+- If the model successfully and confidently identifies your drawing before time runs out, you win!
+
+---
 
 ## Resources
 
