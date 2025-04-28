@@ -71,6 +71,7 @@ Two types of datasets from the **QuickDraw** project were used:
 ### RNN Model (Stroke-sequence based, LSTM)
 
 - **Architecture:**
+
 ![Model Architecture](/RNN_Model_Architecture.png)
 
 - **Loss Function:** Cross Entropy Loss
